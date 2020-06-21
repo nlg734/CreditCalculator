@@ -1,12 +1,29 @@
-credit_principal = 'Credit principal: 1000'
-final_output = 'The credit has been repaid!'
-first_month = 'Month 1: paid out 250'
-second_month = 'Month 2: paid out 250'
-third_month = 'Month 3: paid out 500'
+import math
 
-# write your code here
-print(credit_principal)
-print(first_month)
-print(second_month)
-print(third_month)
-print(final_output)
+
+print("Enter the credit principal:")
+prin = int(input())
+
+print("What do you want to calculate?")
+print("type \"m\" - for count of months,")
+print("type \"p\" - for monthly payment:")
+
+choice = input()
+
+if choice == "m":
+    print("Enter monthly payment:")
+    paym = int(input())
+    months = math.ceil(prin / paym)
+    if months == 1:
+        print("It takes 1 month to repay the credit")
+    else:
+        print("It takes " + str(months) + "months to repay the credit")
+elif choice == "p":
+    print("Enter count of months:")
+    months = int(input())
+    paym = math.ceil(prin / months)
+    last_paym = prin - (months - 1) * paym
+    if paym == last_paym:
+        print("Your monthly payment = " + str(paym))
+    else:
+        print("Your monthly payment = " + str(paym) + " with last month payment = " + str(last_paym))
